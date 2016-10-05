@@ -1,6 +1,6 @@
 // Start a WebSocket connection with the server using SocketIO
 var socket = io(); 	// Note that the SocketIO client-side library was imported on line 13 of index.html,
-					// and this file (local.js) was imported on line 14 of index.html
+			// and this file (local.js) was imported on line 14 of index.html
 
 // Key codes for W (UP), S (DOWN), A (LEFT), and D (RIGHT):
 var UP = 87, DOWN = 83, LEFT = 65, RIGHT = 68;
@@ -20,13 +20,12 @@ function moveTheBox(keyCode) {
 	var SCREENWIDTH = 100, SCREENHEIGHT = 100, BOXSIZE = 10, STEPSIZE = 1.5, direction = 1, newPositionValue = 0;
 
 	// Create a variable for the HTML element with the id="movebox"
-  var box = document.getElementById('movebox');
+	var box = document.getElementById('movebox');
 
-  // The below code is a bit tricky because it's doing a little math
-  // to make the box wrap around if it goes off the edge of the screen.
-  // But essentially it's just resetting the "top" or "left" CSS property
-  // by either adding or subtracting a constant amount (STEPSIZE) to its existing position
-  
+	// The below code is a bit tricky because it's doing a little math
+	// to make the box wrap around if it goes off the edge of the screen.
+	// But essentially it's just resetting the "top" or "left" CSS property
+	// by either adding or subtracting a constant amount (STEPSIZE) to its existing position
 	switch (keyCode) {
 		case UP:
 			direction = -1;
