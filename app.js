@@ -1,6 +1,6 @@
 // Setting up libraries and configuration
 var express = require('express');		// The require() function includes the code for Express
-var app = express();					// Initialize the Express library
+var app = express();				// Initialize the Express library
 var http = require('http').Server(app);	// Initialize an HTTP server
 var io = require('socket.io')(http);	// Include and initialize SocketIO
 var port = process.env.PORT || 8000;	// Set the default port number to 8000, or use Heroku's settings (process.env.PORT)
