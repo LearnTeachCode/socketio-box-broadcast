@@ -16,29 +16,28 @@ document.addEventListener('keydown', moveAndBroadcast);
 function moveAndBroadcast(event) {
 	// Normalize key codes across browsers:
 	var keyCode = event.which || event.keyCode || 0;
-
-  // If one of our control keys was pressed, move the box and send the code to the server
+	
+	// If one of our control keys was pressed, move the box and send the code to the server
 	if ( keyCode == UP || keyCode == DOWN || keyCode == LEFT || keyCode == RIGHT ) {
 		// Move the box on the screen accordingly:
-    moveTheBox(keyCode);
-    // Send the key code to the server, which will then broadcast it to other clients
+		moveTheBox(keyCode);
+		// Send the key code to the server, which will then broadcast it to other clients
 		socket.emit( 'master move', keyCode );
 	}
 }
 
 // This function actually MOVES the box on the page as needed using absolute positioning with CSS
 function moveTheBox(keyCode) {
-
+	// Constants for the CSS positioning and a couple helper variables
 	var SCREENWIDTH = 100, SCREENHEIGHT = 100, BOXSIZE = 10, STEPSIZE = 1.5, direction = 1, newPositionValue = 0;
-
+	
 	// Create a variable for the HTML element with the id="movebox"
-  var box = document.getElementById('movebox');
+	var box = document.getElementById('movebox');
 
-  // The below code is a bit tricky because it's doing a little math
-  // to make the box wrap around if it goes off the edge of the screen.
-  // But essentially it's just resetting the "top" or "left" CSS property
-  // by either adding or subtracting a constant amount (STEPSIZE) to its existing position
-  
+	// The below code is a bit tricky because it's doing a little math
+	// to make the box wrap around if it goes off the edge of the screen.
+	// But essentially it's just resetting the "top" or "left" CSS property
+	// by either adding or subtracting a constant amount (STEPSIZE) to its existing position
 	switch (keyCode) {
 		case UP:
 			direction = -1;
