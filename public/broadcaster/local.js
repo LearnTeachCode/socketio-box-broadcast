@@ -1,6 +1,6 @@
 // Start a WebSocket connection with the server using SocketIO
 var socket = io(); 	// Note that the SocketIO client-side library was imported on line 13 of index.html,
-					// and this file (local.js) was imported on line 14 of index.html
+			// and this file (local.js) was imported on line 14 of index.html
 
 // Key codes for W (UP), S (DOWN), A (LEFT), and D (RIGHT):
 var UP = 87, DOWN = 83, LEFT = 65, RIGHT = 68;
